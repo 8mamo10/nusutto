@@ -3,6 +3,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MemoModule } from './memo/memo.module';
+import { UsersService } from './users/users.service';
+import { UsersController } from './users/users.controller';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -13,8 +16,9 @@ import { MemoModule } from './memo/memo.module';
       synchronize: true,
     }),
     MemoModule,
+    UsersModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, UsersController],
+  providers: [AppService, UsersService],
 })
 export class AppModule {}
