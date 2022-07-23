@@ -1,17 +1,17 @@
 import { Injectable } from '@nestjs/common';
-import { Memos } from 'src/memos/memos.entity';
+import { Memo } from 'src/memos/memo.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class MemosService {
   constructor(
-    @InjectRepository(Memos)
-    private readonly memosRepository: Repository<Memos>,
+    @InjectRepository(Memo)
+    private readonly memosRepository: Repository<Memo>,
   ) {}
 
   addMemo(name: string, description: string) {
-    const memos = new Memos();
+    const memos = new Memo();
     memos.name = name;
     memos.description = description;
     return this.memosRepository.insert(memos);
