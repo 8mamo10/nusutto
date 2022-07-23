@@ -1,10 +1,9 @@
 import { Controller, Get, Post, Query } from '@nestjs/common';
-import { query } from 'express';
-import { MemoService } from './memo.service';
+import { MemosService } from './memos.service';
 
-@Controller('memo')
-export class MemoController {
-  constructor(private readonly service: MemoService) {}
+@Controller('memos')
+export class MemosController {
+  constructor(private readonly service: MemosService) {}
 
   @Get()
   getMemoList() {
