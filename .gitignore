@@ -36,3 +36,7 @@ lerna-debug.log*
 
 # database
 db
+
+# terraform
+**/.terraform/*
+
