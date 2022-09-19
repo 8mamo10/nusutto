@@ -12,7 +12,7 @@ resource "google_cloud_run_service" "ireco" {
     }
 
     spec {
-      container_concurrency = 80
+      container_concurrency = 5
       timeout_seconds       = 100
 
       containers {
@@ -33,4 +33,12 @@ resource "google_cloud_run_service" "ireco" {
       }
     }
   }
+}
+
+resource "google_cloud_run_service_iam_policy" "ireco_noauth" {
+  location = google_cloud_run_service.ireco.location
+  project  = google_cloud_run_service.ireco.project
+  service  = google_cloud_run_service.ireco.name
+
+  policy_data = data.google_iam_policy.noauth.policy_data
 }
