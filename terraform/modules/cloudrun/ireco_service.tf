@@ -13,7 +13,7 @@ resource "google_cloud_run_service" "ireco" {
 
     spec {
       container_concurrency = 80
-      timeout_seconds       = 300
+      timeout_seconds       = 100
 
       containers {
         image = "asia-northeast2-docker.pkg.dev/nusutto/cloud-run-source-deploy/ireco"
