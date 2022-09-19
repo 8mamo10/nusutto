@@ -7,10 +7,8 @@ resource "google_cloud_run_service" "ireco" {
     metadata {
       annotations = {
         "autoscaling.knative.dev/maxScale" = "100"
-        "run.googleapis.com/client-name"   = "cloud-console"
+        "run.googleapis.com/client-name"   = "terraform"
       }
-      labels = {}
-      name   = "ireco-00001-pay"
     }
 
     spec {
